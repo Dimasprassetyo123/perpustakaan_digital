@@ -24,9 +24,20 @@ class User extends Authenticatable
         'password',
     ];
 
-    // 🔥 penting untuk login pakai username
-    public function username()
+    // ✅ FIX: Beritahu Laravel pakai 'id_user' sebagai identifier session
+    public function getAuthIdentifierName(): string
     {
-        return 'username';
+        return 'id_user';
     }
+
+    // ✅ FIX: Beritahu Laravel pakai 'username' untuk login
+    public function getAuthIdentifier(): mixed
+    {
+        return $this->id_user;
+    }
+
+    public function anggota()
+{
+    return $this->hasOne(Anggota::class, 'id_user');
+}
 }
