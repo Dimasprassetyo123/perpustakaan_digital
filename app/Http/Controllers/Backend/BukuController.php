@@ -26,7 +26,7 @@ class BukuController extends Controller
             'judul_buku' => 'required',
             'penulis' => 'required',
             'tahun_terbit' => 'required|date',
-            'stok' => 'required|integer',
+            'stok' => 'required|integer|min:0',
             'kategori' => 'required',
             'cover' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
@@ -71,7 +71,7 @@ class BukuController extends Controller
             'judul_buku' => 'required',
             'penulis' => 'required',
             'tahun_terbit' => 'required|date',
-            'stok' => 'required|integer',
+            'stok' => 'required|integer|min:0',
             'kategori' => 'required',
             'cover' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);

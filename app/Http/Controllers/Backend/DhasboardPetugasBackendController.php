@@ -3,17 +3,34 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Buku;
 use App\Models\Petugas;
+use App\Models\Anggota;
+use App\Models\Buku;
+use App\Models\Peminjaman;
+use Carbon\Carbon;
 
 class DhasboardPetugasBackendController extends Controller
 {
     public function index()
     {
-        $totalBuku = Buku::count();
+        // 🔹 TOTAL
         $totalPetugas = Petugas::count();
+        $totalAnggota = Anggota::count();
+        $totalBuku = Buku::count();
+        $totalPeminjaman = Peminjaman::count();
 
-        return view('page.backend.halamanPetugas.index', compact('totalBuku', 'totalPetugas'));
+        // 🔹 PEMINJAMAN HARI INI
+        $peminjamanHariIni = Peminjaman::with(['anggota', 'buku'])
+            ->whereDate('tanggal_pinjam', Carbon::today())
+            ->latest()
+            ->get();
+
+        return view('page.backend.halamanpetugas.index', compact(
+            'totalPetugas',
+            'totalAnggota',
+            'totalBuku',
+            'totalPeminjaman',
+            'peminjamanHariIni'
+        ));
     }
 }

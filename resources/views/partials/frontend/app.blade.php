@@ -14,24 +14,18 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assetsfrontend/css/normalize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assetsfrontend/icomoon/icomoon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assetsfrontend/css/vendor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assetsfrontend/css/style.css') }}">
     <style>
-        .btn-dark:hover {
-            transform: translateY(-2px);
-            transition: 0.3s;
-        }
-
-        img:hover {
-            transform: scale(1.03);
-            transition: 0.3s;
-        }
+        
     </style>
+    @stack('styles')
 </head>
-
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
 
     {{-- navbar --}}
@@ -49,25 +43,8 @@
     </script>
     <script src="{{ asset('assetsfrontend/js/plugins.js') }}"></script>
     <script src="{{ asset('assetsfrontend/js/script.js') }}"></script>
-    <script>
-document.getElementById('searchBuku').addEventListener('keyup', function() {
 
-    let keyword = this.value.toLowerCase();
-    let items = document.querySelectorAll('.buku-item');
-
-    items.forEach(item => {
-        let judul = item.getAttribute('data-judul');
-
-        if (judul.includes(keyword)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-
-});
-</script>
-
+    @stack('scripts')
 </body>
 
 </html>

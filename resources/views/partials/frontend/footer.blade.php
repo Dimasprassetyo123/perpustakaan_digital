@@ -1,153 +1,189 @@
-	<footer id="footer">
-		<div class="container">
-			<div class="row">
+<footer class="frontend-footer">
+    <div class="container">
+        <div class="row g-5">
+            
+            {{-- BRAND --}}
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <img src="{{ asset('assetsfrontend/images/main-logo.png') }}" alt="Perpustakaan Logo" class="footer-logo">
+                    <p class="footer-desc">
+                        Platform perpustakaan digital modern yang memudahkan Anda untuk mencari, meminjam, dan membaca koleksi buku terbaik dari manapun dan kapanpun.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
 
-				<div class="col-md-4">
+            {{-- LINKS 1 --}}
+            <div class="col-lg-2 col-md-6">
+                <div class="footer-widget">
+                    <h5 class="widget-title">Eksplorasi</h5>
+                    <ul class="widget-lists">
+                        <li><a href="{{ route('frontend.home') }}">Beranda</a></li>
+                        <li><a href="{{ route('frontend.home') }}#popular-books">Semua Buku</a></li>
+                        <li><a href="{{ route('frontend.home') }}#popular-swiper">Buku Populer</a></li>
+                        @auth
+                        <li><a href="{{ route('riwayat') }}">Riwayat Peminjaman</a></li>
+                        @endauth
+                    </ul>
+                </div>
+            </div>
 
-					<div class="footer-item">
-						<div class="company-brand">
-							<img src="{{ asset('assetsfrontend/images/main-logo.png') }}" alt="logo" class="footer-logo">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus
-								nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames
-								semper erat ac in suspendisse iaculis.</p>
-						</div>
-					</div>
+            {{-- LINKS 2 --}}
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h5 class="widget-title">Pusat Bantuan</h5>
+                    <ul class="widget-lists">
+                        <li><a href="#">Cara Meminjam</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">FAQ (Tanya Jawab)</a></li>
+                    </ul>
+                </div>
+            </div>
 
-				</div>
+            {{-- CONTACT --}}
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h5 class="widget-title">Hubungi Kami</h5>
+                    <ul class="contact-lists">
+                        <li>
+                            <i class="bi bi-geo-alt"></i> 
+                            <span>Jl. Pendidikan No. 123, Kota Edukasi, Indonesia</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i> 
+                            <span>info@perpustakaandigital.com</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i> 
+                            <span>(021) 1234-5678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-				<div class="col-md-2">
+        </div>
+    </div>
 
-					<div class="footer-menu">
-						<h5>About Us</h5>
-						<ul class="menu-list">
-							<li class="menu-item">
-								<a href="#">vision</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">articles </a>
-							</li>
-							<li class="menu-item">
-								<a href="#">careers</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">service terms</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">donate</a>
-							</li>
-						</ul>
-					</div>
+    {{-- BOTTOM BAR --}}
+    <div class="footer-bottom">
+        <div class="container text-center">
+            <p class="m-0">&copy; {{ date('Y') }} <strong>Perpustakaan Digital</strong>. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+    </div>
+</footer>
 
-				</div>
-				<div class="col-md-2">
+<style>
+    .frontend-footer {
+        background: #faf3e8;
+        color: #8b7355;
+        padding-top: 80px;
+        font-family: 'Inter', sans-serif;
+    }
 
-					<div class="footer-menu">
-						<h5>Discover</h5>
-						<ul class="menu-list">
-							<li class="menu-item">
-								<a href="#">Home</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Books</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Authors</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Subjects</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Advanced Search</a>
-							</li>
-						</ul>
-					</div>
+    .footer-logo {
+        height: 40px;
+        margin-bottom: 20px;
+        /* No brightness/invert needed for dark text on light bg */
+    }
 
-				</div>
-				<div class="col-md-2">
+    .footer-desc {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        color: #8b7355;
+    }
 
-					<div class="footer-menu">
-						<h5>My account</h5>
-						<ul class="menu-list">
-							<li class="menu-item">
-								<a href="#">Sign In</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">View Cart</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">My Wishtlist</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Track My Order</a>
-							</li>
-						</ul>
-					</div>
+    .social-links {
+        display: flex;
+        gap: 12px;
+    }
 
-				</div>
-				<div class="col-md-2">
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        background: #fdf5e6;
+        color: #a8855f;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid #f2e3c6;
+    }
 
-					<div class="footer-menu">
-						<h5>Help</h5>
-						<ul class="menu-list">
-							<li class="menu-item">
-								<a href="#">Help center</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Report a problem</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Suggesting edits</a>
-							</li>
-							<li class="menu-item">
-								<a href="#">Contact us</a>
-							</li>
-						</ul>
-					</div>
+    .social-links a:hover {
+        background: #a8855f;
+        border-color: #a8855f;
+        transform: translateY(-3px);
+    }
 
-				</div>
+    .widget-title {
+        color: #4a3f35;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+    }
 
-			</div>
-			<!-- / row -->
+    .widget-lists {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-		</div>
-	</footer>
+    .widget-lists li {
+        margin-bottom: 12px;
+    }
 
-	<div id="footer-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
+    .widget-lists a {
+        color: #8b7355;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.2s, padding-left 0.2s;
+        display: inline-block;
+    }
 
-					<div class="copyright">
-						<div class="row">
+    .widget-lists a:hover {
+        color: #dabe96;
+        padding-left: 5px;
+    }
 
-							<div class="col-md-6">
-								<p>© 2022 All rights reserved. Free HTML Template by <a
-										href="https://www.templatesjungle.com/" target="_blank">TemplatesJungle</a></p>
-							</div>
+    .contact-lists {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-							<div class="col-md-6">
-								<div class="social-links align-right">
-									<ul>
-										<li>
-											<a href="#"><i class="icon icon-facebook"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="icon icon-twitter"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="icon icon-youtube-play"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="icon icon-behance-square"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
+    .contact-lists li {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
 
-						</div>
-					</div><!--grid-->
+    .contact-lists i {
+        color: #dabe96;
+        font-size: 18px;
+        margin-top: 2px;
+    }
 
-				</div><!--footer-bottom-content-->
-			</div>
-		</div>
-	</div>
+    .footer-bottom {
+        background: #fdf9f1;
+        padding: 20px 0;
+        margin-top: 60px;
+        font-size: 13px;
+        border-top: 1px solid #f2e3c6;
+    }
+
+    .footer-bottom strong {
+        color: #4a3f35;
+    }
+</style>
